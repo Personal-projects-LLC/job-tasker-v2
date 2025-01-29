@@ -1,5 +1,4 @@
-import React from 'react';
-import { useQuery } from 'react-query';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 interface JokeData {
@@ -20,10 +19,28 @@ const fetchJoke = async (): Promise<JokeData[]> => {
 };
 
 export const AxiosExample: React.FC = () => {
-  const { data, error, isLoading } = useQuery<JokeData[], ErrorType>(
-    'jokes',
-    fetchJoke
-  );
+  const [data, setData] = useState<JokeData[] | null>(null);
+  const [error, setError] = useState<ErrorType | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await fetchJoke();
+        setData(result);
+      } catch (error: unknown) {
+        if (error instanceof Error) {
+          setError({ message: error.message });
+        } else {
+          setError({ message: 'An unknown error occurred' });
+        }
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   if (error) {
     return <div>Error: {error.message}</div>;

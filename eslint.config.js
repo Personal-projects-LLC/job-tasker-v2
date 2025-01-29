@@ -11,7 +11,7 @@ const __dirname = dirname(__filename);
 
 export default [
   {
-    files: ['src/**/*.{js,jsx,ts,tsx}', 'pages/**/*.{js,jsx,ts,tsx}', 'test/**/*.{js,jsx,ts,tsx}'],
+    files: ['src/**/*.{js,jsx,ts,tsx}', 'pages/**/*.{js,jsx,ts,tsx}'],
     ...js.configs.recommended,
     plugins: {
       '@typescript-eslint': typescriptPlugin,

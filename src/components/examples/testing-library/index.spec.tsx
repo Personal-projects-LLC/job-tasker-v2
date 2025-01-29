@@ -1,5 +1,5 @@
 import { fireEvent, render } from '@testing-library/react';
-import { expect } from '@jest/globals';
+import { expect, jest } from '@jest/globals';
 
 import { TestingLibraryExample } from './index';
 
