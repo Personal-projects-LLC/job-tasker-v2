@@ -9,8 +9,6 @@ interface Joke {
   punchline: string;
 }
 
-const [data, setData] = useState<Joke[]>([]);
-
 export const ReactQueryExample: React.FC = () => {
   const [data, setData] = useState<Joke[]>([]); // Указан тип для состояния data
   const [isLoading, setIsLoading] = useState<boolean>(true);

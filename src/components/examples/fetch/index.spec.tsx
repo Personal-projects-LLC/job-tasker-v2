@@ -1,3 +1,4 @@
+import React from 'react';
 import { FetchExample } from './index';
 import './mocks';
 import { mockResponse } from './mocks';

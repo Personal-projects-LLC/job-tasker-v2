@@ -3,7 +3,9 @@ import React from 'react';
 export type IButton = React.DetailedHTMLProps<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
->;
+> & {
+  className?: string;
+};
 
 export const Button: React.FC<IButton> = ({
   className = '',

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button } from '@components/button';
+import { Button } from "@components/button";
 
 export const Main: React.FC = () => {
   return (
@@ -26,7 +26,7 @@ export const Main: React.FC = () => {
           data-test="docs-btn-anchor"
           className="mb-2"
           href="https://pankod.github.io/superplate/"
-          target="_blank"
+          target="_blank" rel="noreferrer"
         >
           <Button>Docs</Button>
         </a>
@@ -51,7 +51,7 @@ export const Main: React.FC = () => {
           <a
             className="underline text-blue-600"
             href="https://s.refine.dev/superplate"
-            target="_blank"
+            target="_blank" rel="noreferrer"
           >
             refine
           </a>
@@ -64,14 +64,14 @@ export const Main: React.FC = () => {
           <a
             className="underline text-blue-600"
             href="https://s.refine.dev/superplate"
-            target="_blank"
+            target="_blank" rel="noreferrer"
           >
             refine
           </a>{' '}
-          to rapidly build your next <b>CRUD</b> project, whether it's an admin
+          to rapidly build your next <b>CRUD</b> project, whether it&apos;s an admin
           panel, dashboard, internal tool or storefront.
         </p>
-        <a href="https://s.refine.dev/superplate" target="_blank">
+        <a href="https://s.refine.dev/superplate" target="_blank" rel="noreferrer">
           <img
             width="100%"
             src="https://cdn.discordapp.com/attachments/991655841793052723/1042775236954820658/Group_572_1.png"
