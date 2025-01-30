@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [main]
 
+env:
+  SONAR_TOKEN: admin
+  SONAR_HOST_URL: http://localhost:3000
+
 jobs:
   sonarqube:
     runs-on: ${{ matrix.os }}
@@ -42,9 +46,6 @@ jobs:
         run: npm ci
 
       - name: Run SonarQube analysis
-        env:
-          SONAR_TOKEN: $SONAR_TOKEN
-          SONAR_HOST_URL: $SONAR_HOST_URL
         run: |
           npm install -g sonarqube-scanner
           sonar-scanner \
