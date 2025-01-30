@@ -43,12 +43,12 @@ jobs:
 
       - name: Run SonarQube analysis
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_TOKEN: $SONAR_TOKEN
+          SONAR_HOST_URL: $SONAR_HOST_URL
         run: |
           npm install -g sonarqube-scanner
           sonar-scanner \
             -Dsonar.projectKey=job-tasker-v2 \
             -Dsonar.sources=. \
-            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
-            -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+            -Dsonar.host.url=$SONAR_HOST_URL \
+            -Dsonar.login=$SONAR_TOKEN
