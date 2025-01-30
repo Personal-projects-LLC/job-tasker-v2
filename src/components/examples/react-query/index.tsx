@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-const API_URL = 'https://official-joke-api.appspot.com/jokes/programming/random';
+const API_URL =
+  'https://official-joke-api.appspot.com/jokes/programming/random';
 
 interface Joke {
   id: number;

@@ -14,7 +14,8 @@ export const Footer: React.FC = () => {
         href="https://github.com/pankod"
         target="_blank"
         className="block mb-3"
-        data-testid="pankod-logo" rel="noreferrer"
+        data-testid="pankod-logo"
+        rel="noreferrer"
       >
         <PankodIcon
           data-test="icon"

@@ -2,7 +2,6 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { expect } from '@jest/globals';
 
-
 import { Main } from './index';
 
 describe('Main component testing with testing-library', () => {

@@ -10,6 +10,6 @@ const Home = () => {
       <Footer />
     </Container>
   );
-}
+};
 
 export default Home;
