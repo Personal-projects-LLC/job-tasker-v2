@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 env:
-  SONAR_LOGIN: admin
+  SONAR_TOKEN: cbe313ea88119bab1d5e6f64c5b83e38dae1e834
   SONAR_HOST_URL: http://localhost:9000
 
 jobs:
@@ -52,4 +52,4 @@ jobs:
             -Dsonar.projectKey=job-tasker-v2 \
             -Dsonar.sources=. \
             -Dsonar.host.url=$SONAR_HOST_URL \
-            -Dsonar.login=$SONAR_LOGIN
+            -Dsonar.token=$SONAR_TOKEN
