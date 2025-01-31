@@ -2,22 +2,33 @@ name: Build
 
 on:
   push:
+<<<<<<< HEAD
     branches:
       - develop
+=======
+    branches: [develop]
+>>>>>>> 241d86d2d753d4a42478d9b2c9151f25f0c3f3c7
 
 jobs:
   build:
     name: Build and analyze
+<<<<<<< HEAD
     runs-on: windows-latest
+=======
+    runs-on: ubuntu-latest
+>>>>>>> 241d86d2d753d4a42478d9b2c9151f25f0c3f3c7
 
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
       - uses: SonarSource/sonarqube-scan-action@v4
+<<<<<<< HEAD
         with:
           scannerVersion: 6.2.1.4610
           scannerBinariesUrl: https://binaries.sonarsource.com/Distribution/sonar-scanner-cli
+=======
+>>>>>>> 241d86d2d753d4a42478d9b2c9151f25f0c3f3c7
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
