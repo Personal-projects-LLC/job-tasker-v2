@@ -1,4 +1,4 @@
-name: SonarQube Analysis
+name: Test SonarQube Analysis
 
 on:
   workflow_dispatch: # Ручной запуск
