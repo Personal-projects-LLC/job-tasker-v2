@@ -46,10 +46,15 @@ jobs:
       # Добавляем шаг для исправления прав доступа
       - name: Fix SonarQube scanner permissions
         run: |
-          chmod -R +x $GITHUB_WORKSPACE/.github/workflows/
-          chmod -R +x ${{ github.workspace }}/.github/workflows/
-          chmod -R +x $GITHUB_ACTION_PATH
-          chmod -R +x ${{ github.action_path }}
+          if [ -d ".github/workflows" ]; then
+            chmod -R +x .github/workflows/
+          fi
+          if [ -d "${{ github.workspace }}/.github/workflows" ]; then
+            chmod -R +x "${{ github.workspace }}/.github/workflows"
+          fi
+          if [ -n "$GITHUB_ACTION_PATH" ]; then
+            chmod -R +x "$GITHUB_ACTION_PATH"
+          fi
 
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v4
