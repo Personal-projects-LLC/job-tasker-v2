@@ -1,0 +1,75 @@
+name: SonarQube Analysis
+
+on:
+  workflow_dispatch: # Ручной запуск
+  push:
+    branches: ['develop']
+  pull_request:
+    branches: ['develop']
+
+jobs:
+  sonarqube:
+    name: SonarQube Analysis
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        java: [11, 21]
+        node: [18, 20]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK ${{ matrix.java }}
+        uses: actions/setup-java@v4
+        with:
+          java-version: ${{ matrix.java }}
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'npm'
+
+      # Добавляем задержку для предотвращения ошибки "Text file busy"
+      - name: Wait for filesystem
+        run: sleep 5
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Добавляем шаг для исправления прав доступа
+      - name: Fix SonarQube scanner permissions
+        run: |
+          chmod -R +x $GITHUB_WORKSPACE/.github/workflows/
+          chmod -R +x ${{ github.workspace }}/.github/workflows/
+          chmod -R +x $GITHUB_ACTION_PATH
+          chmod -R +x ${{ github.action_path }}
+
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v4
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        with:
+          args: >
+            -Dsonar.projectKey=job-tasker-v2
+            -Dsonar.projectName=job-tasker-v2
+            -Dsonar.sourceEncoding=UTF-8
+            -Dsonar.javascript.node.maxspace=4096
+            -Dsonar.coverage.exclusions=**/*.test.js,**/*.spec.js,**/tests/**/*
+            -Dsonar.test.inclusions=**/*.test.js,**/*.spec.js,**/tests/**/*
+
+      # Добавляем обработку ошибок
+      - name: Handle Scan Results
+        if: always()
+        run: |
+          if [ ${{ job.status }} == 'failure' ]; then
+            echo "SonarQube scan failed. Check the logs above for details."
+            exit 1
+          fi
