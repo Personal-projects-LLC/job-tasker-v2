@@ -27,10 +27,19 @@ jobs:
           java-version: ${{ matrix.java }}
           cache: maven
 
+      - name: Verify Java version
+        run: java --version
+
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Verify Java version
-        run: java --version
+      - name: Install dependencies
+        run: npm install
+
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v4
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
