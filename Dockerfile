@@ -1,15 +1,4 @@
-FROM node:12-alpine
-
-WORKDIR /opt/app
-
-ENV NODE_ENV production
-
-COPY package*.json ./
-
-RUN npm ci 
-
-COPY . /opt/app
-
-RUN npm install --dev && npm run build
-
-CMD [ "npm", "start" ]
+FROM docker/whalesay:latest
+LABEL Name=jobtaskerv2 Version=0.0.1
+RUN apt-get -y update && apt-get install -y fortunes
+CMD ["sh", "-c", "/usr/games/fortune -a | cowsay"]
