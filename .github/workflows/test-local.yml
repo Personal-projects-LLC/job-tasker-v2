@@ -36,15 +36,18 @@ jobs:
           java-version: '17'
 
       - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: |
-          sonar-scanner \
-            -Dsonar.projectKey=job-tasker-v2 \
-            -Dsonar.sources=src \
-            -Dsonar.host.url=${SONAR_HOST_URL} \
-            -Dsonar.login=${SONAR_TOKEN} \
-            -Dsonar.typescript.tsconfigPath=tsconfig.json \
-            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
-            -Dsonar.scm.provider=git
+        # run: |
+        with:
+          args: >
+            sonar-scanner \
+              -Dsonar.projectKey=job-tasker-v2 \
+              -Dsonar.sources=src \
+              -Dsonar.host.url=${SONAR_HOST_URL} \
+              -Dsonar.login=${SONAR_TOKEN} \
+              -Dsonar.typescript.tsconfigPath=tsconfig.json \
+              -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info \
+              -Dsonar.scm.provider=git
