@@ -1,0 +1,23 @@
+name: Install Temurin JDK
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install Temurin JDK 17
+        run: |
+          winget install -e --id Eclipse.Temurin.17
+
+      - name: Verify JDK Installation
+        run: |
+          java --version
