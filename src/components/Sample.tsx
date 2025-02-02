@@ -1,6 +1,8 @@
 import React from 'react';
 
-export const Sample: React.FC = () => {
+interface SampleProps {}
+
+export const Sample: React.FC<SampleProps> = () => {
   return (
     <div>
       <h1>Sample Component</h1>
