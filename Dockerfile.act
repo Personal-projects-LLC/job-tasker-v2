@@ -12,7 +12,7 @@ COPY package.json .
 COPY pom.xml .
 COPY sonar-project.properties .
 COPY jest.config.mjs .
-COPY jest.setup.js .
+COPY jest.setup.mjs .
 
 # Install Node.js
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
