@@ -1,8 +1,13 @@
-// import { PHASE_DEVELOPMENT_SERVER } from 'next/constants';
-
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const config = {
   reactStrictMode: true,
-};
+  eslint: {
+    ignoreDuringBuilds: false
+    // ignoreBuildErrors: false,
+  },
+  experimental: {
+    esmExternals: true,
+  },
+}
 
-export default nextConfig;
+export default config
