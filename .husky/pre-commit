@@ -1,1 +1,6 @@
-act -j build
+npm run format
+npm run prettier
+npm run lint
+npm test
+npm run typecheck
+npm run build
