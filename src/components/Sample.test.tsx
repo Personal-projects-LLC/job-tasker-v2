@@ -1,12 +1,10 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 import { Sample } from './Sample';
-import { describe, it, expect } from '@jest/globals';
 
 describe('Sample Component', () => {
-  it('should render successfully', () => {
+  test('renders a heading with text "Sample Component"', () => {
     render(<Sample data={{}} />);
+    // Используем getByRole для поиска заголовка с игнорированием регистра
     const heading = screen.getByRole('heading', { name: /sample component/i });
     expect(heading).toBeInTheDocument();
   });

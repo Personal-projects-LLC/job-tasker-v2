@@ -2,12 +2,12 @@
 const config = {
   reactStrictMode: true,
   eslint: {
-    ignoreDuringBuilds: false
+    ignoreDuringBuilds: false,
     // ignoreBuildErrors: false,
   },
   experimental: {
     esmExternals: true,
   },
-}
+};
 
-export default config
+export default config;

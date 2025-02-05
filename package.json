@@ -4,16 +4,24 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "test": "jest",
-    "test:coverage": "jest --coverage",
+    "next": "next",
     "start": "next start -p 3000",
     "dev": "next dev",
     "build": "next build",
+    "format": "prettier --write 'src/**/*.{js,ts,json,css}'",
+    "prettier": "prettier --write .",
     "lint": "next lint --fix",
-    "prebuild": "npm run lint"
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "typecheck": "tsc --noEmit",
+    "prebuild": "npm run lint",
+    "prepare": "husky"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.1.1",
     "axios": "^1.7.9",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "dotenv": "^16.4.7",
     "isomorphic-unfetch": "^4.0.2",
     "next": "^15.1.6",
@@ -22,6 +30,7 @@
     "react-dom": "^19.0.0",
     "react-use": "^17.6.0",
     "sass": "^1.83.4",
+    "tailwind-merge": "^3.0.1",
     "tailwindcss": "^4.0.1"
   },
   "devDependencies": {
