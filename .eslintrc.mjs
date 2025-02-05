@@ -5,17 +5,31 @@ export default [
       'eslint:recommended',
       'plugin:prettier/recommended',
       'plugin:@typescript-eslint/recommended',
-      'next'
+      'plugin:jest/recommended',
+      'next',
     ],
+    plugins: ['@typescript-eslint', 'jest'],
     // Определяем переопределения для файлов с тестами.
     overrides: [
       {
         files: ['**/?(*.)+(spec|test).[jt]s?(x)'],
+        plugins: ['jest'],
         extends: ['plugin:jest/recommended'],
         env: {
-          'jest/globals': true
-        }
-      }
+          jest: true,
+          'jest/globals': true,
+        },
+        globals: {
+          describe: 'readonly',
+          it: 'readonly',
+          test: 'readonly',
+          expect: 'readonly',
+          jest: 'readonly',
+        },
+        rules: {
+          'no-undef': 'off',
+        },
+      },
     ],
     // Определяем глобальные переменные среды.
     env: {
@@ -32,22 +46,19 @@ export default [
       parserOptions: {
         ecmaVersion: 12,
         sourceType: 'module',
-        project: ['./tsconfig.json']
+        project: ['./tsconfig.json'],
       },
       globals: {
-        // Можно добавить декларации глобальных объектов, например:
-        // window: 'readonly',
-        // process: 'readonly',
-        ...globals.browser,
-        ...globals.node
-      }
+        browser: 'readonly',
+        node: 'readonly',
+      },
     },
     // Правила линтинга.
     rules: {
       indent: ['error', 2],
       'linebreak-style': ['error', 'unix'],
       quotes: ['error', 'double'],
-      semi: ['error', 'always']
-    }
-  }
+      semi: ['error', 'always'],
+    },
+  },
 ];
