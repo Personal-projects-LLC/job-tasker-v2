@@ -1,0 +1,6 @@
+projectKey=Personal-projects-LLC_job-tasker-v2_7b5eae8d-3e04-44fd-b75d-d729cd3cf13e
+serverUrl=https://ct2pfqiksper.share.zrok.io
+serverVersion=25.2.0.102705
+dashboardUrl=https://ct2pfqiksper.share.zrok.io/dashboard?id=Personal-projects-LLC_job-tasker-v2_7b5eae8d-3e04-44fd-b75d-d729cd3cf13e
+ceTaskId=c98fe530-be18-48f4-a340-2d76d7d77ad6
+ceTaskUrl=https://ct2pfqiksper.share.zrok.io/api/ce/task?id=c98fe530-be18-48f4-a340-2d76d7d77ad6
