@@ -46,9 +46,8 @@ export function DeleteProjectDialog({
           </Dialog.Title>
           <div className="space-y-4">
             <p className="text-muted-foreground">
-              Are you sure you want to delete {projectTitle}? This action
-              cannot be undone and all associated tasks will be permanently
-              deleted.
+              Are you sure you want to delete {projectTitle}? This action cannot
+              be undone and all associated tasks will be permanently deleted.
             </p>
             <div className="flex justify-end gap-3">
               <Button
