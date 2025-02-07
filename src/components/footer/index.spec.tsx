@@ -1,4 +1,3 @@
-import { jest, beforeAll, afterAll } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import { Footer } from './index';
 
