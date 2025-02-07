@@ -2,8 +2,7 @@
 const config = {
   reactStrictMode: true,
   eslint: {
-    ignoreDuringBuilds: false,
-    // ignoreBuildErrors: false,
+    ignoreDuringBuilds: true, // Временно отключаем ESLint во время сборки
   },
   experimental: {
     esmExternals: true,

@@ -2,13 +2,13 @@
 
 import { useEffect } from 'react';
 
-export default function Error({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
-}) {
+interface ErrorComponentProps {
+  // Define an interface for the props
+  readonly error: Error & { digest?: string }; // Mark 'error' as readonly
+  readonly reset: () => void; // Mark 'reset' as readonly
+}
+
+export default function ErrorComponent({ error, reset }: ErrorComponentProps) {
   useEffect(() => {
     // Optionally log the error to an error reporting service
     console.error(error);

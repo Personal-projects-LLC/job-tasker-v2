@@ -21,19 +21,15 @@ export function DeleteProjectDialog({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function handleDelete() {
+  const handleDelete = () => {
     setLoading(true);
     setError(null);
 
-    try {
-      await onDelete(projectId);
-      setOpen(false);
-    } catch {
-      setError('Failed to delete project');
-    } finally {
-      setLoading(false);
-    }
-  }
+    void onDelete(projectId)
+      .then(() => setOpen(false))
+      .catch(() => setError('Failed to delete project'))
+      .finally(() => setLoading(false));
+  };
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>
@@ -46,9 +42,8 @@ export function DeleteProjectDialog({
           </Dialog.Title>
           <div className="space-y-4">
             <p className="text-muted-foreground">
-              Are you sure you want to delete {projectTitle}? This action
-              cannot be undone and all associated tasks will be permanently
-              deleted.
+              Are you sure you want to delete {projectTitle}? This action cannot
+              be undone and all associated tasks will be permanently deleted.
             </p>
             <div className="flex justify-end gap-3">
               <Button

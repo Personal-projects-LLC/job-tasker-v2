@@ -24,7 +24,7 @@ describe('ProjectList', () => {
   const mockOnDelete = jest
     .fn()
     .mockImplementation(() => Promise.resolve()) as jest.MockedFunction<
-    () => Promise<void>
+    (id: string) => Promise<void>
   >;
 
   beforeEach(() => {

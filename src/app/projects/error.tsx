@@ -6,13 +6,13 @@ import { Button } from '@/components/button';
 import { useEffect } from 'react';
 import Link from 'next/link';
 
-export default function ProjectsError({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
-}) {
+interface ProjectsErrorProps {
+  // Define an interface for the props
+  readonly error: Error & { digest?: string }; // Mark 'error' as readonly
+  readonly reset: () => void; // Mark 'reset' as readonly
+}
+
+export default function ProjectsError({ error, reset }: ProjectsErrorProps) {
   useEffect(() => {
     console.error(error);
   }, [error]);

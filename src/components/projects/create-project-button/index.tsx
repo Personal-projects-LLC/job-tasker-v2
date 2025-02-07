@@ -5,7 +5,6 @@ import { FormEvent, useState } from 'react';
 import * as Dialog from '@radix-ui/react-dialog';
 
 interface CreateProjectButtonProps {
-  // onCreateProject: (project: { title: string; description: string }) => Promise<void>;
   onCreateProject: (data: {
     title: string;
     description: string;
@@ -57,7 +56,7 @@ export function CreateProjectButton({
           <Dialog.Title className="text-lg font-semibold mb-4">
             Create New Project
           </Dialog.Title>
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={() => handleSubmit} className="space-y-4">
             <div>
               <label
                 htmlFor="title"
