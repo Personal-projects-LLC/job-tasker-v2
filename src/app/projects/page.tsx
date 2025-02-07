@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { CreateProjectButton } from '@/components/projects/create-project-button';
 import { ProjectList } from '@/components/projects/project-list';
+import { randomBytes } from 'crypto';
 
 interface Project {
   id: string;
@@ -21,7 +22,7 @@ export default function ProjectsPage() {
     description: string;
   }) => {
     const newProject: Project = {
-      id: Math.random().toString(),
+      id: randomBytes(32).toString('hex'),
       ...data,
       status: 'active',
       tasksCount: 0,

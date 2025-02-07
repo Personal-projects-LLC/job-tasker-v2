@@ -3,7 +3,7 @@
 import { ReactNode } from 'react';
 
 interface ProvidersProps {
-  children: ReactNode;
+  readonly children: ReactNode;
 }
 
 export default function Providers({ children }: ProvidersProps) {

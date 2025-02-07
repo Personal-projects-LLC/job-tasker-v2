@@ -18,7 +18,7 @@ export default function ProjectsLoading() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {Array.from({ length: 6 }).map((_, i) => (
               <div
-                key={i}
+                key={`project-loading-placeholder-${crypto.randomUUID()}`}
                 className="hover-card rounded-lg border p-4 space-y-3"
                 style={{
                   animation: `fade-in 0.5s ease-out forwards ${i * 100}ms`,

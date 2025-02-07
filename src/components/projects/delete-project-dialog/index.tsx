@@ -21,19 +21,15 @@ export function DeleteProjectDialog({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  async function handleDelete() {
+  const handleDelete = () => {
     setLoading(true);
     setError(null);
 
-    try {
-      await onDelete(projectId);
-      setOpen(false);
-    } catch {
-      setError('Failed to delete project');
-    } finally {
-      setLoading(false);
-    }
-  }
+    void onDelete(projectId)
+      .then(() => setOpen(false))
+      .catch(() => setError('Failed to delete project'))
+      .finally(() => setLoading(false));
+  };
 
   return (
     <Dialog.Root open={open} onOpenChange={setOpen}>

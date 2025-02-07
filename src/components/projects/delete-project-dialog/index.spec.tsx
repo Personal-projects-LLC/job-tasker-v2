@@ -5,9 +5,7 @@ describe('DeleteProjectDialog', () => {
   const defaultProps = {
     projectId: '1',
     projectTitle: 'Test Project',
-    onDelete: jest.fn(
-      (id: string): Promise<void> => Promise.resolve()
-    ) as jest.MockedFunction<(id: string) => Promise<void>>,
+    onDelete: jest.fn() as jest.MockedFunction<(id: string) => Promise<void>>,
     trigger: <button>Delete</button>,
   };
 
