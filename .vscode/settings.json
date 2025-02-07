@@ -1,6 +1,22 @@
 {
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "css.validate": false,
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ],
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
+  },
+  "javascript.suggestionActions.enabled": false,
+  "typescript.suggestionActions.enabled": false,
   "sonarlint.connectedMode.project": {
     "connectionId": "samraffi",
-    "projectKey": "Personal-projects-LLC_job-tasker-v2_7b5eae8d-3e04-44fd-b75d-d729cd3cf13e"
+    "projectKey": "Samraffi_job-tasker-v2"
   }
 }

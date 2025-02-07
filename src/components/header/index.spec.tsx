@@ -1,4 +1,3 @@
-import { jest, beforeEach } from '@jest/globals';
 import { render, screen } from '@testing-library/react';
 import { Header } from './index';
 import { usePathname } from 'next/navigation';

@@ -10,6 +10,9 @@ const compat = new FlatCompat({
 export default [
   ...compat.config({
     extends: ['eslint:recommended', 'next'],
+    rules: {
+      'no-unused-vars': 'off',
+    },
   }),
   {
     files: ['**/?(*.)+(spec|test).[jt]s?(x)'],
@@ -19,6 +22,10 @@ export default [
         it: 'readonly',
         test: 'readonly',
         expect: 'readonly',
+        jest: 'readonly',
+        beforeAll: 'readonly',
+        beforeEach: 'readonly',
+        afterAll: 'readonly',
       },
     },
   },
